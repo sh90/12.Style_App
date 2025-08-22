@@ -1,0 +1,9 @@
+# Core
+torch>=2.2.0,<2.6
+torchvision>=0.17.0,<0.21
+numpy>=1.23
+Pillow>=9.5
+# UI
+streamlit>=1.24
+# Optional (for CLI preview/plotting)
+matplotlib>=3.6
