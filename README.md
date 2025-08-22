@@ -1,6 +1,6 @@
-# 🎨 Style Transfer Web App (Beginner-Friendly, 2‑Hour Demo)
+# 🎨 Style Transfer Web App 
 
-A fun, hands-on Streamlit app that applies the **artistic style** of one image to another using **Neural Style Transfer (NST)**.  
+A hands-on Streamlit app that applies the **artistic style** of one image to another using **Neural Style Transfer (NST)**.  
 Designed for **beginners** and ideal for a **2-hour guided workshop** using **Python + PyCharm**.
 
 ---
