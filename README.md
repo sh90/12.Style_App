@@ -16,17 +16,14 @@ Designed for **beginners** and ideal for a **2-hour guided workshop** using **Py
 
 ## 🏁 Quick Start
 
-> Recommended Python: 3.9 – 3.11
+> Recommended Python: 3.12
 
-```bash
-# 1) Create & activate a virtual env (example for macOS/Linux)
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+```
 
-# 2) Install deps (CPU-friendly versions pinned)
+# 1) Install deps 
 pip install -r requirements.txt
 
-# 3) Run the Streamlit app
+# 2) Run the Streamlit app
 streamlit run streamlit_app.py
 ```
 
@@ -34,7 +31,7 @@ Then open the local URL printed by Streamlit. Upload a **content** image and a *
 
 ---
 
-## 🗂 Project Structure
+##  Project Structure
 ```
 style_transfer_web_app/
 ├── streamlit_app.py      # UI: upload images, sliders, progress, preview, download
@@ -74,50 +71,42 @@ style_transfer_web_app/
 
 ---
 
-## 🧰 2‑Hour Teaching Plan (Beginner Friendly)
-
-> Time estimates assume CPU. Encourage smaller image sizes (e.g., 256–384) and ~150 steps.
-
-### 0–10 min: Setup
+###  Setup
 - Create virtualenv, install requirements
 - Launch `streamlit run streamlit_app.py`
 - Tour of the UI
 
-### 10–25 min: The Idea
+###  The Idea
 - Content vs Style: show sample images
 - VGG19 as a feature extractor (no training!)
 - Style via Gram matrices (intuitive explanation)
 
-### 25–35 min: Code Walkthrough (Top Level)
+###  Code Walkthrough (Top Level)
 - `streamlit_app.py`: file uploaders, sliders, progress callback
 - Parameters: steps, style strength, content strength, TV (smoothness)
 
-### 35–55 min: Code Walkthrough (Core)
+### Code Walkthrough (Core)
 - `nst.py`: 
   - Which VGG layers are used and why
   - Content/Style losses, TV loss
   - Optimization loop
 - `utils.py`: preprocessing & device selection
 
-### 55–75 min: Run Experiments
+###  Run Experiments
 - Try small sizes (256/320) & 100–150 steps
 - Change style strength & TV weight and observe effects
 - Discuss CPU vs GPU/MPS (Apple Silicon) speeds
 
-### 75–90 min: Mini‑Challenges
+### Mini‑Challenges
 - Try different content/style images
 - Increase steps to improve output
 - Tweak which style layers are used
 
-### 90–110 min: Additions & UX
+###  Additions & UX
 - Explain the progress callback and live preview
 - Add a “Download” button (already included)
 - (Optional) Save intermediate frames to make a GIF later
 
-### 110–120 min: Wrap‑up & Q&A
-- Common pitfalls (too large images on CPU)
-- Where this is used in industry (creative tools, filters)
-- Extensions (fast style transfer models, video stylization)
 
 ---
 
