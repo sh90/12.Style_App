@@ -39,58 +39,6 @@ Neural style transfer is a technique that is used to take two images—a content
     3. **total variation loss**, which is used for spatial continuity between the pixels of the generated image, thereby denoising it and giving it visual coherence.
 4. Finally, we set our gradients and optimize using the L-BFGS algorithm to get the desired output.
 
-## Getting Started <a name="getting-started"></a>
-
-### File Description <a name="description"></a>
-
-    Neural-Style-Transfer
-        ├── data
-        |   ├── content-images
-        |   ├── style-images
-        ├── models/definitions     
-        │   ├── vgg19.py   <-- VGG19 model definition
-        ├── NST.py  <-- the main python file
-        ├── LICENSE
-        └── README.md
-
-### Dependencies <a name="dependencies"></a>
-*    Python 3.9+
-*    Framework: PyTorch
-*    Libraries: os, numpy, cv2, matplotlib, torchvision
-
-### Usage <a name="usage"></a>
-
-```
-    $ pip install -r requirements.txt
-```
-
-#### To implement Neural Style Transfer on images of your own:
-
-1. Clone the repository and move to the downloaded folder:
-```
-    $  git clone https://github.com/nazianafis/Neural-Style-Transfer
-```
-```
-    $  cd Neural-Style-Transfer
-```
-2. Move your content/style image(s) to their respective folders inside the `data` folder.
-
-3. Go to `NST.py`, and in it, set the `PATH` variable to your downloaded folder. Also set `CONTENT_IMAGE`, `STYLE_IMAGE` variables as your desired images:
-```
-    $ PATH = <your_path>
-   
-    $ CONTENT_IMAGE = <your_content_image_name>
-    $ STYLE_IMAGE = <you_style_image_name>
-```
-4. Run `NST.py`:
-```
-    $ python NST.py
-```
-5. Find your generated image in the `output-images` folder inside `data`.
-
-## Output <a name="output"></a>
-
-The following images were generated using no image manipulation program(s) other than the code described in this article.
 
 <img src="https://github.com/nazianafis/Resources/blob/main/NST/NST-outputs.png" alt="content" width="700"/>
 
