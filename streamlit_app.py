@@ -4,6 +4,14 @@ import torch
 from utils import pick_device, load_image, image_to_bytes
 from nst import run_style_transfer
 
+import certifi
+print(certifi.where())
+import os
+
+# Option 1: hard-code your cert bundle path
+os.environ["SSL_CERT_FILE"] = certifi.where()
+os.environ["REQUESTS_CA_BUNDLE"] = os.environ["SSL_CERT_FILE"]
+
 st.set_page_config(page_title="Neural Style Transfer (Beginner Demo)", page_icon="🎨", layout="centered")
 
 st.title("🎨 Neural Style Transfer — Beginner Demo")
@@ -12,7 +20,7 @@ Upload a **content image** (what to paint) and a **style image** (how to paint).
 This app blends them using a pre-trained VGG19 feature extractor.
 """)
 
-with st.expander("What is this doing? (1-minute crash course)"):
+with st.expander("What is this doing? "):
     st.markdown("""
 - We use a pre-trained **VGG19** network as a feature extractor (no training from scratch!).  
 - **Content loss** keeps the main structure of your content image (e.g., shapes).  
@@ -57,9 +65,9 @@ with tab_app:
 
     c1, c2 = st.columns(2)
     with c1:
-        st.image(content_img, caption="Content", use_column_width=True)
+        st.image(content_img, caption="Content", use_container_width=True)
     with c2:
-        st.image(style_img, caption="Style", use_column_width=True)
+        st.image(style_img, caption="Style", use_container_width=True)
 
     if st.button("🎬 Stylize!", type="primary"):
         prog = st.progress(0, text="Starting optimization...")
@@ -67,7 +75,7 @@ with tab_app:
 
         def cb(step, img):
             prog.progress(min(step/steps, 1.0), text=f"Optimizing... step {step}/{steps}")
-            preview_slot.image(img, caption=f"Preview at step {step}", use_column_width=True)
+            preview_slot.image(img, caption=f"Preview at step {step}", use_container_width=True)
 
         with st.spinner("Cooking pixels..."):
             out = run_style_transfer(
