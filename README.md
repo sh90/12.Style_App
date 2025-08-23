@@ -5,7 +5,7 @@ We will use **Python + PyCharm** for this project.
 
 ---
 
-## 🧠 What You’ll Learn
+##  What You’ll Learn
 - The intuition behind **content** vs **style** in images
 - How to reuse a **pre-trained VGG19** network for feature extraction
 - How **Gram matrices** capture texture/style
@@ -14,7 +14,7 @@ We will use **Python + PyCharm** for this project.
 
 ---
 
-## 🏁 Quick Start
+##  Quick Start
 
 > Recommended Python: 3.12
 
@@ -46,7 +46,7 @@ style_transfer_web_app/
 
 ---
 
-## 🧪 How It Works (Plain-English)
+##  How It Works 
 
 1. **Load Pre-trained VGG19**  
    We don’t train a CNN from scratch. We take a VGG19 trained on ImageNet and **use it as a fixed feature extractor**.
@@ -74,18 +74,17 @@ style_transfer_web_app/
 ###  Setup
 - Create virtualenv, install requirements
 - Launch `streamlit run streamlit_app.py`
-- Tour of the UI
 
 ###  The Idea
-- Content vs Style: show sample images
+- Content vs Style:  sample images can be refered
 - VGG19 as a feature extractor (no training!)
-- Style via Gram matrices (intuitive explanation)
+- Style via Gram matrices 
 
-###  Code Walkthrough (Top Level)
+###  Code Walkthrough 
 - `streamlit_app.py`: file uploaders, sliders, progress callback
 - Parameters: steps, style strength, content strength, TV (smoothness)
 
-### Code Walkthrough (Core)
+### Code Walkthrough 
 - `nst.py`: 
   - Which VGG layers are used and why
   - Content/Style losses, TV loss
@@ -97,20 +96,13 @@ style_transfer_web_app/
 - Change style strength & TV weight and observe effects
 - Discuss CPU vs GPU/MPS (Apple Silicon) speeds
 
-### Mini‑Challenges
+### Additionl experiments
 - Try different content/style images
 - Increase steps to improve output
 - Tweak which style layers are used
+  
 
-###  Additions & UX
-- Explain the progress callback and live preview
-- Add a “Download” button (already included)
-- (Optional) Save intermediate frames to make a GIF later
-
-
----
-
-## ⚙️ Parameters to Try
+##  Parameters to Try
 
 - **Max image size**: 256–512 (CPU: prefer ≤384)  
 - **Steps**: 100–300 (more steps = better but slower)  
@@ -119,7 +111,7 @@ style_transfer_web_app/
 
 ---
 
-## 🖥️ Running from CLI (Optional)
+## Running from CLI 
 
 ```bash
 python nst_cli.py --content samples/content.jpg --style samples/style.jpg --out stylized.jpg --size 384 --steps 150
@@ -127,7 +119,7 @@ python nst_cli.py --content samples/content.jpg --style samples/style.jpg --out 
 
 ---
 
-## 🧩 Troubleshooting
+##  Troubleshooting
 
 - **Slow on CPU?**  
   Reduce image size and steps. Close other apps.
@@ -138,7 +130,7 @@ python nst_cli.py --content samples/content.jpg --style samples/style.jpg --out 
 
 ---
 
-## 🧠 Where Is This Used?
+##  Where Is This Used?
 - Creative photo apps & filters
 - Design ideation & concept art
 - Education/teaching neural representations
@@ -153,4 +145,4 @@ python nst_cli.py --content samples/content.jpg --style samples/style.jpg --out 
 ---
 
 ## ✅ License
-MIT (for this demo code). Pre-trained VGG19 weights are from torchvision (under their respective license).
+ Pre-trained VGG19 weights are from torchvision (under their respective license).
