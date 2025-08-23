@@ -1,6 +1,5 @@
 """
 Classic Neural Style Transfer (Gatys et al.) with VGG19.
-This implementation is intentionally simple for teaching/demo.
 """
 from typing import Callable, Optional
 import torch
@@ -28,13 +27,40 @@ def gram_matrix(feat: torch.Tensor) -> torch.Tensor:
     return G / (C * H * W)
 
 def get_vgg_features(device: torch.device):
+    from torchvision.models import vgg19, VGG19_Weights
+    from torchvision.transforms import Normalize
+
     weights = VGG19_Weights.DEFAULT
     vgg = vgg19(weights=weights).features.to(device).eval()
     for p in vgg.parameters():
         p.requires_grad_(False)
-    mean = weights.meta["mean"]
-    std = weights.meta["std"]
+
+    # Safe defaults (ImageNet)
+    mean = (0.485, 0.456, 0.406)
+    std  = (0.229, 0.224, 0.225)
+
+    # 1) Prefer modern API: pull Normalize from weights.transforms()
+    try:
+        tfm = weights.transforms()
+        if hasattr(tfm, "transforms"):  # Compose-like
+            for t in tfm.transforms:
+                if isinstance(t, Normalize):
+                    mean = tuple(t.mean)
+                    std  = tuple(t.std)
+                    break
+    except Exception:
+        pass
+
+    # 2) Fallback to legacy weights.meta if present
+    try:
+        meta = getattr(weights, "meta", {}) or {}
+        mean = tuple(meta.get("mean", mean))
+        std  = tuple(meta.get("std", std))
+    except Exception:
+        pass
+
     return vgg, mean, std
+
 
 def extract_features(x: torch.Tensor, vgg: nn.Sequential, layers: dict):
     feats = {}
