@@ -4,7 +4,7 @@ Taken from : https://github.com/nazianafis/Neural-Style-Transfer?tab=readme-ov-f
 
 # Neural-Style-Transfer (NST)
 
-Neural Style Transfer is the ability to create a new image (known as a pastiche) based on two input images: one representing the content and the other representing the artistic style.
+Neural Style Transfer is the ability to create a new image based on two input images: one representing the content and the other representing the artistic style.
 
 For this task we will use a pre-trained VGG19 model.
 
