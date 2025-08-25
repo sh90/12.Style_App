@@ -3,6 +3,7 @@
 A hands-on Streamlit app that applies the **artistic style** of one image to another using **Neural Style Transfer (NST)**.  
 We will use **Python + PyCharm** for this project.
 
+Image generation from GPT - https://www.dall-efree.com/pricing
 ---
 
 ##  What You’ll Learn
@@ -39,9 +40,7 @@ style_transfer_web_app/
 ├── utils.py              # Image/device helpers
 ├── nst_cli.py            # Optional CLI usage
 ├── requirements.txt
-└── samples/
-    ├── content.jpg       # Generated sample
-    └── style.jpg         # Generated sample
+
 ```
 
 ---
@@ -83,8 +82,6 @@ style_transfer_web_app/
 ###  Code Walkthrough 
 - `streamlit_app.py`: file uploaders, sliders, progress callback
 - Parameters: steps, style strength, content strength, TV (smoothness)
-
-### Code Walkthrough 
 - `nst.py`: 
   - Which VGG layers are used and why
   - Content/Style losses, TV loss
@@ -103,7 +100,6 @@ style_transfer_web_app/
   
 
 ##  Parameters to Try
-
 - **Max image size**: 256–512 (CPU: prefer ≤384)  
 - **Steps**: 100–300 (more steps = better but slower)  
 - **Style weight**: `1e5` to `1e7`  
@@ -112,7 +108,6 @@ style_transfer_web_app/
 ---
 
 ## Running from CLI 
-
 ```bash
 python nst_cli.py --content samples/content.jpg --style samples/style.jpg --out stylized.jpg --size 384 --steps 150
 ```
@@ -144,5 +139,5 @@ python nst_cli.py --content samples/content.jpg --style samples/style.jpg --out 
 
 ---
 
-## ✅ License
+##  License
  Pre-trained VGG19 weights are from torchvision (under their respective license).
